@@ -1,33 +1,87 @@
-Installation for MacOS
+# Installation for MacOS
 
-1. Install XCode from the app store. This will add XCode command line tools.
-    A. Alternatively, if you don't want to install XCode, you can install the command line tools separately. Open a terminal and type:
-        xcode-select --install
-    B. Follow the installation instructions.
+## 1. Install XCode
+1. Install XCode from the App Store. This will add XCode command line tools.
+    **Alternatively**, if you don't want to install XCode, you can install the command line tools separately. Open a terminal and type:
+    ```bash
+    xcode-select --install
+    ```
+2. Follow the installation instructions.
 
-2. Install homebrew.
-    A. Open a terminal window and paste:
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    B. Follow the instructions and restart the terminal after homebrew is installed.
+## 2. Install Homebrew
+1. Open a terminal window and paste:
+    ```bash
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+2. Follow the instructions and restart the terminal after Homebrew is installed.
 
-3. Install some dependencies.
-    A. In a terminal, paste:
-        brew install openssl readline sqlite3 xz zlib
+## 3. Install Dependencies
+1. In a terminal, paste:
+    ```bash
+    brew install openssl readline sqlite3 xz zlib
+    ```
 
-3. Install pyenv. This allows us to easily manage multiple versions of Python, which is useful because this software uses dependencies that only work on older versions of python.
-    A. Open a terminal window and paste:
-        homebrew install pyenv
+## 4. Install `pyenv`
+1. Open a terminal window and paste:
+    ```bash
+    brew install pyenv
+    ```
 
-4. See which version of Python you are currently using.
-    A. In a terminal, type:
-        which python
-    B. If it says 'python not found', type:
-        which python3
+## 5. Check Your Current Python Version
+1. In a terminal, type:
+    ```bash
+    which python
+    ```
+2. If it says `python not found`, type:
+    ```bash
+    which python3
+    ```
 
-5. We need python version <<<FIND VERSION LATER>>>
+## 6. Install Python Version 3.9.6
+1. Type:
+    ```bash
+    pyenv install 3.9.6
+    ```
+2. Let the installation complete.
 
-6. Confirm that the new python version was downloaded.
-    A. Type: pyenv versions
-    B. Ensure that <<<FIND VERSION LATER>>> is listed.
+## 7. Confirm the New Python Version
+1. Type:
+    ```bash
+    pyenv versions
+    ```
+2. Ensure that `3.9.6` is listed.
 
-7. Switch to the downloaded version.
+## 8. Switch to the Downloaded Python Version
+1. In a terminal, navigate to the project directory and type:
+    ```bash
+    pyenv local 3.9.6
+    ```
+
+## 9. Create a Virtual Environment
+Since a specific version of Python is required, keep this version and its libraries in the project directory instead of installing them system-wide through `pip`.
+1. In the project directory terminal, type:
+    ```bash
+    python -m venv venv
+    ```
+    This creates a new Python virtual environment named `venv`.
+2. Source the Python virtual environment:
+    ```bash
+    source venv/bin/activate
+    ```
+
+## 10. Run the Program and Install Extra Dependencies
+1. Run the program once to see if any dependencies need to be installed:
+    ```bash
+    python Olfactory\ Connect.py
+    ```
+2. If the output alerts you to missing dependencies, install them using:
+    ```bash
+    pip install <dependency name>
+    ```
+3. After installing each dependency, run the program again. Ensure the robot is connected to the computer via the USB Bluetooth dongle before running the program.
+
+## 11. When Finished
+1. Close the virtual environment
+    ```bash
+    deactivate
+    ```

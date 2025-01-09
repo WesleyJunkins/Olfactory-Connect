@@ -10,10 +10,11 @@ print("\tsimply click the \"connect\" button in the application window.")
 print("\n\n/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\n")
 
 import time, os, csv, customtkinter, threading
-import tkinter as tk
 from cyberpi import *
 from datetime import datetime
 from tkinter import filedialog
+
+print("Made it here")
 
 #List to hold all data to be written to CSV file.
 compiledLIST = []
